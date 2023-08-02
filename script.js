@@ -1,4 +1,7 @@
 
+let playerScore = 0
+let compScore = 0
+
 
 function getComputerChoice(){
     let randomNo = Math.floor(Math.random() *3);
@@ -14,7 +17,7 @@ function getComputerChoice(){
 
 
 let compAns = getComputerChoice();
-let playerAns = prompt("Rock,Paper,Scissors?")
+let playerAns = prompt("Rock,Paper,Scissors?").toLowerCase();
 
 function playRound(compAns, playerAns){
     if (compAns === playerAns)
@@ -30,3 +33,5 @@ function playRound(compAns, playerAns){
 }
 
 console.log(playRound(compAns,playerAns));
+
+function game()
