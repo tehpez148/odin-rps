@@ -12,4 +12,21 @@ function getComputerChoice(){
     }
 }
 
-console.log(getComputerChoice());
+
+let compAns = getComputerChoice();
+let playerAns = prompt("Rock,Paper,Scissors?")
+
+function playRound(compAns, playerAns){
+    if (compAns === playerAns)
+        {return("Tie");}
+    else if 
+        ((compAns ==="rock" && playerAns ==="scissors")||
+        (compAns ==="paper" && playerAns === "rock")||
+        (compAns ==="scissors" && playerAns ==="paper")) {return "Computer wins!"}
+    else if
+        ((playerAns==="rock" && compAns ==="scissors")||(playerAns==="paper" && compAns==="scissors")||(playerAns==="scissors"&&compAns==="paper")){
+            return "Player wins!"
+        }
+}
+
+console.log(playRound(compAns,playerAns));
