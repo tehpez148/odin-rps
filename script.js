@@ -1,7 +1,5 @@
-
-let playerScore = 0
-let compScore = 0
-
+let playerScore = 0;
+let compScore = 0;
 
 function getComputerChoice(){
     let randomNo = Math.floor(Math.random() *3);
@@ -16,8 +14,7 @@ function getComputerChoice(){
 }
 
 
-let compAns = getComputerChoice();
-let playerAns = prompt("Rock,Paper,Scissors?").toLowerCase();
+
 
 function playRound(compAns, playerAns){
     if (compAns === playerAns)
@@ -25,18 +22,30 @@ function playRound(compAns, playerAns){
     else if 
         ((compAns ==="rock" && playerAns ==="scissors")||
         (compAns ==="paper" && playerAns === "rock")||
-        (compAns ==="scissors" && playerAns ==="paper")) {return "Computer wins!"}
+        (compAns ==="scissors" && playerAns ==="paper")) {
+            compScore++;
+            return "Computer wins!";}
     else if
         ((playerAns==="rock" && compAns ==="scissors")||
         (playerAns==="paper" && compAns==="scissors")||
         (playerAns==="scissors"&&compAns==="paper")){
-            return "Player wins!"
+            playerScore++;
+            return "Player Wins!";
             
         }
 }
 
-console.log(playRound(compAns,playerAns));
 
-function game(){
-    while (playerScore != 5 || compScore !=5){playRound(compAns,playerAns)}
-};
+function game (){
+    while (compScore != 5 && playerScore != 5){
+        let compAns = getComputerChoice();
+        let playerAns = prompt("Rock,Paper,Scissors?").toLowerCase();
+
+       
+        console.log(playRound(compAns,playerAns));
+        console.log(`Scores are, Computer:${compScore} Player:${playerScore}`);
+    }
+}
+
+game();
+
