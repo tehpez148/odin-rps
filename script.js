@@ -27,11 +27,16 @@ function playRound(compAns, playerAns){
         (compAns ==="paper" && playerAns === "rock")||
         (compAns ==="scissors" && playerAns ==="paper")) {return "Computer wins!"}
     else if
-        ((playerAns==="rock" && compAns ==="scissors")||(playerAns==="paper" && compAns==="scissors")||(playerAns==="scissors"&&compAns==="paper")){
+        ((playerAns==="rock" && compAns ==="scissors")||
+        (playerAns==="paper" && compAns==="scissors")||
+        (playerAns==="scissors"&&compAns==="paper")){
             return "Player wins!"
+            
         }
 }
 
 console.log(playRound(compAns,playerAns));
 
-function game()
+function game(){
+    while (playerScore != 5 || compScore !=5){playRound(compAns,playerAns)}
+};
