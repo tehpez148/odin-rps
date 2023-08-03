@@ -45,6 +45,17 @@ function game (){
         console.log(playRound(compAns,playerAns));
         console.log(`Scores are, Computer:${compScore} Player:${playerScore}`);
     }
+    results();
+}
+
+function results(){
+    if (playerScore ===5){
+        console.log("You did it!");
+    }
+    else if (compScore === 5){
+        console.log("All your base are belong to us");
+    }
+
 }
 
 game();
