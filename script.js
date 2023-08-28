@@ -36,14 +36,14 @@ function playRound(compAns, playerAns){
         }
 }
 
-/*
+
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
         button.addEventListener('click', () =>{console.log(button.id);
         });
     });
 // works as expected, logs either "rock", "paper" or "scissor" as pressed.
-*/
+
 
  function getPlayerChoice() {
     const buttons = document.querySelectorAll("button");
