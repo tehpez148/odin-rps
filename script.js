@@ -1,6 +1,7 @@
 let playerScore = 0;
 let compScore = 0;
 
+
 function getComputerChoice(){
     let randomNo = Math.floor(Math.random() *3);
     switch(randomNo){
@@ -35,11 +36,33 @@ function playRound(compAns, playerAns){
         }
 }
 
+/*
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+        button.addEventListener('click', () =>{console.log(button.id);
+        });
+    });
+// works as expected, logs either "rock", "paper" or "scissor" as pressed.
+*/
 
+ function getPlayerChoice() {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+        button.addEventListener('click', () =>{return(button.id);
+        });
+    });
+ }; 
+ console.log(getPlayerChoice());
+ // logs undefined
+
+
+
+
+/*
 function game (){
     while (compScore != 5 && playerScore != 5){
         let compAns = getComputerChoice();
-        let playerAns = prompt("Rock,Paper,Scissors?").toLowerCase();
+        let playerAns = buttonPressed;
 
        
         console.log(playRound(compAns,playerAns));
@@ -48,15 +71,16 @@ function game (){
     results();
 }
 
+
 function results(){
     if (playerScore ===5){
-        console.log("You did it!");
+        alert("You did it!");
     }
     else if (compScore === 5){
-        console.log("All your base are belong to us");
+        alert("All your base are belong to us");
     }
 
 }
 
 game();
-
+*/
