@@ -1,6 +1,9 @@
 let playerScore = 0;
 let compScore = 0;
 
+const playerS = document.getElementById('playerS');
+const compS = document.getElementById('compS');
+const roundOut = document.getElementById('roundOut');
 
 function getComputerChoice(){
     let randomNo = Math.floor(Math.random() *3);
@@ -28,8 +31,9 @@ function playRound(compAns, playerAns){
             return "Computer wins!";}
     else if
         ((playerAns==="rock" && compAns ==="scissors")||
-        (playerAns==="paper" && compAns==="scissors")||
-        (playerAns==="scissors"&&compAns==="paper")){
+        (playerAns==="scissors" && compAns==="paper")||
+        (playerAns === 'paper' && compAns === "rock")
+        ){
             playerScore++;
             return "Player Wins!";
             
@@ -37,50 +41,51 @@ function playRound(compAns, playerAns){
 }
 
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-        button.addEventListener('click', () =>{console.log(button.id);
-        });
-    });
-// works as expected, logs either "rock", "paper" or "scissor" as pressed.
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
 
+rock.addEventListener('click', function() {
+    (game('rock'));
+});
 
- function getPlayerChoice() {
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => {
-        button.addEventListener('click', () =>{return(button.id);
-        });
-    });
- }; 
- console.log(getPlayerChoice());
- // logs undefined
+paper.addEventListener('click', function() {
+    (game('paper'));
+});
 
+scissors.addEventListener('click', function() {
+    (game('scissors'));
+});
 
 
 
-/*
-function game (){
-    while (compScore != 5 && playerScore != 5){
+function game (weapon){
+    if (compScore != 5 && playerScore != 5){
         let compAns = getComputerChoice();
-        let playerAns = buttonPressed;
+        let playerAns = weapon;
 
-       
-        console.log(playRound(compAns,playerAns));
-        console.log(`Scores are, Computer:${compScore} Player:${playerScore}`);
+        roundOut.textContent = (playRound(compAns,playerAns));
+
+        compS.textContent = (`Comp Score: ${compScore}`);
+        playerS.textContent = (`Player Score: ${playerScore}`);
+        if (compScore === 5 || playerScore ===5){
+            results();
+
+        }
+        
+        
+    } else {
+        location.reload();
     }
-    results();
 }
-
 
 function results(){
-    if (playerScore ===5){
-        alert("You did it!");
+    if (playerScore === 5){
+        roundOut.textContent=("You did it! Pick a weapon to reset!");
     }
     else if (compScore === 5){
-        alert("All your base are belong to us");
+        roundOut.textContent=("All your base are belong to us! Pick a weapon to reset!");
     }
 
 }
 
-game();
-*/
